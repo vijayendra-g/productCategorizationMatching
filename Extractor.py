@@ -2,10 +2,18 @@ import pandas as pd
 from IPython.core.display import display
 
 
-def extract_data(path, explore=False):
+def extract_data(path, n, explore=False):
+    """
+    :param path: data path
+    :param n: select every N-th line in the file and ignore the rest
+    :param explore: explore data to get some statistics
+    :return:
+    """
+    skip_idx = [x for x in range(1, sum(1 for l in open(path))) if x % n != 0]
     raw_data = pd.read_csv(path,
                            error_bad_lines=False,
                            delimiter=";",
+                           skiprows=skip_idx,
                            index_col="Identifiant_Produit")
     if explore:
         # Explore data

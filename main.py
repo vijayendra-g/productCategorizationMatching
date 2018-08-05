@@ -8,7 +8,7 @@ from Preprocessor import train_test_vectorizing
 
 def main():
     # Extacting
-    data = extract_data("datasets/classification/train_data.csv", explore=False).drop(0, axis=0)
+    data = extract_data("datasets/classification/train_data.csv", explore=False, n=20)
 
     # Splitting
     random_state = 8
