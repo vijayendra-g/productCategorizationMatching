@@ -1,14 +1,17 @@
-from Extractor import extract_data
+import os
+
+from categorization.Extractor import extract_data
 import pandas as pd
 from sklearn.model_selection import train_test_split
 
-from Predictor import level_predict, evaluate
-from Preprocessor import train_test_vectorizing
+from categorization.Predictor import level_predict, evaluate
+from categorization.Preprocessor import train_test_vectorizing
 
 
 def main():
     # Extacting
-    data = extract_data("datasets/classification/train_data.csv", explore=False, n=20)
+    os.chdir(r'../datasets')
+    data = extract_data("classification/train_data.csv", explore=False, n=20)
 
     # Splitting
     random_state = 8
