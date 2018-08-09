@@ -13,6 +13,7 @@ In this problem, what is sought is a method that will for a given set of feature
 1. product matching:
 For this problem, you are given three data files - fnac.csv, darty.csv and matching_examples_final.csv. In the fnac and darty data fies, you find products represented by common features (brand, name, price, etc). The idea is to find a corresponding match beween products from darty dataset in the fnac dataset using the available features. The primary key in fnac is "brand" and "product_name". The primary key in darty is the url. The data file matching_examples.csv contains 1000 examples of matches from darty to fnac that can be used as a ground truth for training validation. The idea is to create a method that will try to match any given product to a product in fnac data set, and asses its confidence. As a result, we expect a file, where for each product from darty dataset, will be on each line fnac.brand, fnac.product_name, darty.url and confidence_score. The confidence score quantifies the algorithm's confidence in found match.
 
-
+### Limitation
+Many matching_examples_final file row does not corresponds to any darty product, how can this file be used as ground truth?
 
 
